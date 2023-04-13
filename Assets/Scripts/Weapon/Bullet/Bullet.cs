@@ -10,9 +10,13 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.right * _speed * Time.deltaTime, Space.World);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.TryGetComponent(out Enemy enemy))
+        if (other.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.TryGetComponent(out Enemy enemy))
         {
             enemy.TakeDamage(_damage);
 

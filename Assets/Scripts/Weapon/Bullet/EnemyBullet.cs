@@ -18,9 +18,14 @@ public class EnemyBullet : MonoBehaviour
         transform.Translate(_direction * _speed * Time.deltaTime, Space.World);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.TryGetComponent(out Player player))
+        if (other.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
+        }
+
+        else if (other.TryGetComponent(out Player player))
         {
             player.ApplyDamage(_damage);
 
