@@ -20,6 +20,11 @@ public class Enemy : MonoBehaviour
 
         if (_health <= 0)
             Destroy(gameObject);
-    }   
+    }
+    
+    public void EnemyShoot()
+    {
+        _enemyWeapon.EnemyShoot(_enemyShootPoint);
+    }
     
 }
