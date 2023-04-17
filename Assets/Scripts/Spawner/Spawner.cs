@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private List<Wave> _waves;
-    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
 
     private Wave _currentWave;
@@ -18,7 +18,6 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         SetWave(_currentWaveNumber);
-        Debug.Log($"_currentWaveNumber = {_currentWaveNumber}");
     }
 
     private void Update()
@@ -46,7 +45,9 @@ public class Spawner : MonoBehaviour
 
     private void InstantiateEnemy()
     {
-        Enemy enemy = Instantiate(_currentWave.Template, _spawnPoint.position, _spawnPoint.rotation, _spawnPoint).GetComponent<Enemy>();
+        Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
+        Enemy enemy = Instantiate(_currentWave.Template, randomSpawnPoint.position, randomSpawnPoint.rotation, randomSpawnPoint).GetComponent<Enemy>();
+        
         enemy.Init(_player);
         enemy.Dying += OnEnemyDying;
     }
@@ -54,20 +55,17 @@ public class Spawner : MonoBehaviour
     private void SetWave(int index)
     {
         _currentWave = _waves[index];
-        Debug.Log($"SetWave {index}");
     }
 
     public void NextWave()
     {
         SetWave(++_currentWaveNumber);
         _spawned = 0;
-        Debug.Log($"NextWawe {_currentWaveNumber}");
     }
 
     private void OnEnemyDying(Enemy enemy)
     {
         enemy.Dying -= OnEnemyDying;
-
         _player.AddMoney(enemy.Reward);
     }
 }
