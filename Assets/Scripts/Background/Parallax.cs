@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RawImage))]
-public class Paralacks : MonoBehaviour
+public class Parallax : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
@@ -12,6 +12,7 @@ public class Paralacks : MonoBehaviour
     private void Start()
     {
         _image = GetComponent<RawImage>();
+        _imagePositionX = _image.uvRect.x;
     }
 
     private void Update()
