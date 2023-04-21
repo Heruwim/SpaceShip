@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Plasma Gun
-  _price: 0
-  _icon: {fileID: 0}
-  isBuyed: 1
+  _price: 1
+  _icon: {fileID: 1558779876, guid: 0ab3679bb71398540916b33b88c722cc, type: 3}
+  _isBuyed: 0
   Bullet: {fileID: 8188498858904962366, guid: 4c53dc88aa731ea4aac9230e403134ac, type: 3}

@@ -47,5 +47,9 @@ public class Player : MonoBehaviour
     {
         Money += reward;
     }
-
+    public void BuyWeapon(Weapon weapon)
+    {
+        Money -= weapon.Price;
+        _weapons.Add(weapon);
+    }
 }
