@@ -28,8 +28,8 @@ public class AttackState : State
 
     private void Attack(Enemy enemy)
     {
-        _animator.Play("Attack");
-        enemy.EnemyShoot();
+       //_animator.Play("Attack");
+       enemy.EnemyShoot();
         
     }
 }

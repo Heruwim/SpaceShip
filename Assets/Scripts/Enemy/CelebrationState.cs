@@ -12,7 +12,7 @@ public class CelebrationState : State
 
     private void OnEnable()
     {
-        _animator.Play("Celebration");
+        //_animator.Play("Celebration");
     }
 
     private void OnDisable()

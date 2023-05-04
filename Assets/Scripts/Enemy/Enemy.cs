@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,17 +10,25 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _enemyShootPoint;
 
     private Player _target;
+    private Animator _animator;
+    private BoxCollider2D _boxCollider;
 
     public int Reward => _reward;
     public Player Target => _target;
 
     public event UnityAction<Enemy> Dying;
 
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _boxCollider = GetComponent<BoxCollider2D>();
+    }
+
     public void Init(Player target)
     {
         _target = target;
     }
-
+        
     public void TakeDamage(int damage)
     {
         _health -= damage;
@@ -27,13 +36,15 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             Dying?.Invoke(this);
+            //animator.Play("Explosion");
             Destroy(gameObject);
+            //gameObject.SetActive(false); включить при включения пула
         }
     }
-    
+
     public void EnemyShoot()
     {
         _enemyWeapon.EnemyShoot(_enemyShootPoint);
-    }
+    }   
     
 }
