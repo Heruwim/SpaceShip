@@ -36,9 +36,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             Dying?.Invoke(this);
-            //animator.Play("Explosion");
-            Destroy(gameObject);
-            //gameObject.SetActive(false); включить при включения пула
+            gameObject.SetActive(false);
         }
     }
 

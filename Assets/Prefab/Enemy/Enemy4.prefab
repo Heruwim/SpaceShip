@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 8075817881354383213}
   - component: {fileID: 8075817881354383212}
   - component: {fileID: 8075817881354383211}
-  - component: {fileID: 8075817881354383210}
   - component: {fileID: 8075817881354383209}
   - component: {fileID: 8075817881354383208}
   - component: {fileID: 8075817881354383207}
@@ -50,6 +49,7 @@ GameObject:
   - component: {fileID: 8075817881354383205}
   - component: {fileID: 8075817881354383204}
   - component: {fileID: 8075817881354383203}
+  - component: {fileID: 955525898365494452}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Untagged
@@ -146,32 +146,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &8075817881354383210
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8075817881354383202}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.08108671, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.77, y: 0.58}
-    newSize: {x: 0.77, y: 0.58}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6078266, y: 0.58}
-  m_EdgeRadius: 0
 --- !u!114 &8075817881354383209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,3 +246,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions: []
+--- !u!60 &955525898365494452
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075817881354383202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.77, y: 0.58}
+    newSize: {x: 0.77, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.23643926, y: 0.30110693}
+      - {x: 0.065, y: 0.29}
+      - {x: 0.02274865, y: 0.18206647}
+      - {x: -0.017502427, y: 0.10391012}
+      - {x: -0.21976012, y: 0.13033234}
+      - {x: -0.385, y: 0.11}
+      - {x: -0.385, y: -0.11}
+      - {x: -0.2959595, y: -0.127971}
+      - {x: -0.024999999, y: -0.13}
+      - {x: 0.055, y: -0.26}
+      - {x: 0.095, y: -0.29}
+      - {x: 0.205, y: -0.29}
+      - {x: 0.21509251, y: -0.19562449}
+      - {x: 0.31595948, y: -0.11206645}
+      - {x: 0.33499998, y: 0.089999996}
+      - {x: 0.2093178, y: 0.21}

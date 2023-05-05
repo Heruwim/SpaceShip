@@ -2,61 +2,70 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Spawner : MonoBehaviour
+public class Spawner : ObjectPool
 {
-    [SerializeField] private List<Wave> _waves;
+    //[SerializeField] private List<Wave> _waves;
+
+    [SerializeField] private GameObject[] _enemyTemplates;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
+    [SerializeField] private int _nextEnemyCount = 5;
+    [SerializeField] private float _secondsBetweeneSpawn = 2;
 
-    private Wave _currentWave;
-    private int _currentWaveNumber = 0;
+    //private Wave _currentWave;
+    private int _currentNumberEnemies;
+    private int _currentWaveNumber = 1;
     private float _timeAfterLastSpawn;
     private int _spawned;
-
+    
     public event UnityAction AllEnemySpawned;
     public event UnityAction<int, int> EnemyCountChanged;
 
     private void Start()
-    {
+    {        
+        Initialize(_enemyTemplates);
         SetWave(_currentWaveNumber);
     }
 
     private void Update()
     {
-        if (_currentWave == null)
+        if (_currentNumberEnemies == 0)
             return;
 
         _timeAfterLastSpawn += Time.deltaTime;
 
-        if (_timeAfterLastSpawn >= _currentWave.Delay)
+        if (_timeAfterLastSpawn >= _secondsBetweeneSpawn)
         {
-            InstantiateEnemy();
-            _spawned++;
-            _timeAfterLastSpawn = 0;
-            EnemyCountChanged?.Invoke(_spawned, (int)_currentWave.Count);
+            if (TryGetObject(out GameObject enemy))
+            {
+                _timeAfterLastSpawn = 0;
+                int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
+                SetEnemy(enemy, _spawnPoints[spawnPointNumber].position);
+                _spawned++;
+                EnemyCountChanged?.Invoke(_spawned, _currentNumberEnemies);
+            }
         }
 
-        if (_currentWave.Count <= _spawned)
-        {
-            if (_waves.Count > _currentWaveNumber + 1)
-                AllEnemySpawned?.Invoke();
+            if (_currentNumberEnemies <= _spawned)
+            {
+                if (_currentNumberEnemies == _spawned)
+                    AllEnemySpawned?.Invoke();
 
-            _currentWave = null;
-        }
+                _currentNumberEnemies = 0;
+            }
     }
-
-    private void InstantiateEnemy()
-    {
-        Transform randomSpawnPoint = _spawnPoints[Random.Range(0, _spawnPoints.Length)];
-        Enemy enemy = Instantiate(_currentWave.Template, randomSpawnPoint.position, randomSpawnPoint.rotation, randomSpawnPoint).GetComponent<Enemy>();
         
-        enemy.Init(_player);
-        enemy.Dying += OnEnemyDying;
+    private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
+    {
+        enemy.SetActive(true);
+        enemy.transform.position = spawnPoint;
+        enemy.GetComponent<Enemy>().Init(_player);
+        enemy.GetComponent<Enemy>().Dying += OnEnemyDying;
     }
 
     private void SetWave(int index)
     {
-        _currentWave = _waves[index];
+        _currentNumberEnemies = index * _nextEnemyCount;
     }
 
     public void NextWave()
