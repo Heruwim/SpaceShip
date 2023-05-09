@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7268089400852646250}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   _reward: 1
   _enemyWeapon: {fileID: 5571694330157676559, guid: 7a12297ae7d8eb94c942c6fa7e1bc53c, type: 3}
   _enemyShootPoint: {fileID: 3191277853870637601}
+  _deathEffect: {fileID: 5321682710661101450, guid: e337c960d66157e4da1ebae97a36bc71, type: 3}
 --- !u!114 &3191277852861807870
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private ParticleSystem _explosion;
 
     private Weapon _currentWeapon;
     private int _currentWeaponNumber = 0;
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         _currentWeapon.Shoot(_shootPoint);
-        _animator.Play("Shoot");
     }
 
     public void ApplyDamage(int damage)
@@ -38,7 +38,11 @@ public class Player : MonoBehaviour
         _currentHealth -= damage;
         HealthChanged?.Invoke(_currentHealth, _health);
         if (_currentHealth <= 0)
+        {
+            _explosion.transform.position = transform.position;
+            _explosion.Play();
             Die();
+        }
     }
 
     public void Die()

@@ -4,15 +4,12 @@ using UnityEngine.Events;
 
 public class Spawner : ObjectPool
 {
-    //[SerializeField] private List<Wave> _waves;
-
     [SerializeField] private GameObject[] _enemyTemplates;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
     [SerializeField] private int _nextEnemyCount = 5;
     [SerializeField] private float _secondsBetweeneSpawn = 2;
 
-    //private Wave _currentWave;
     private int _currentNumberEnemies;
     private int _currentWaveNumber = 1;
     private float _timeAfterLastSpawn;

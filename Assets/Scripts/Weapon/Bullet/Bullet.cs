@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
+    [SerializeField] private GameObject _impactEffect;
 
     private void Update()
     {
@@ -16,11 +18,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else if (other.TryGetComponent(out Enemy enemy))
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
             enemy.TakeDamage(_damage);
-
-            Destroy(gameObject); 
+                        
+            Destroy(gameObject);
         }
     }
+    
+
 }
