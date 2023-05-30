@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35039994668828848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.438, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,6 @@ MonoBehaviour:
   _reward: 1
   _enemyWeapon: {fileID: 5571694330157676559, guid: 7a12297ae7d8eb94c942c6fa7e1bc53c, type: 3}
   _enemyShootPoint: {fileID: 7471852988895827365}
-  _deathEffect: {fileID: 5321682710661101450, guid: e337c960d66157e4da1ebae97a36bc71, type: 3}
 --- !u!114 &4161587091670417760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1116901886232447997}
-  _transitionRange: 10
+  _transitionRange: 8
   _rangetSpread: 4
 --- !u!114 &1116901886232447997
 MonoBehaviour:

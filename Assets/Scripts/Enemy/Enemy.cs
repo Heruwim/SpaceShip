@@ -39,7 +39,10 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             Dying?.Invoke(this);
+
             gameObject.SetActive(false);
+            EnemyStateMachine stateMachine = gameObject.GetComponent<EnemyStateMachine>();
+            stateMachine.ResetState();
             _explosion.transform.position = transform.position;
             _explosion.Play();
         }

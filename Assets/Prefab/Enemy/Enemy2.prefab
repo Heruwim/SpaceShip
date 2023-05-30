@@ -131,7 +131,6 @@ MonoBehaviour:
   _reward: 1
   _enemyWeapon: {fileID: 5571694330157676559, guid: 7a12297ae7d8eb94c942c6fa7e1bc53c, type: 3}
   _enemyShootPoint: {fileID: 4602736884517778209}
-  _deathEffect: {fileID: 5321682710661101450, guid: e337c960d66157e4da1ebae97a36bc71, type: 3}
 --- !u!114 &4602736882884590407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 4602736882884590426}
-  _transitionRange: 10
+  _transitionRange: 8
   _rangetSpread: 4
 --- !u!114 &4602736882884590426
 MonoBehaviour:
@@ -241,7 +240,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.18562874, y: -0.066375025}
+    - - {x: 0.16312106, y: -0.16775261}
+      - {x: 0.16173203, y: -0.10761954}
+      - {x: 0.16092205, y: -0.0725517}
       - {x: 0.325, y: -0.08}
       - {x: 0.375, y: -0.01}
       - {x: 0.375, y: 0.01}
@@ -259,9 +260,10 @@ PolygonCollider2D:
       - {x: -0.27084893, y: -0.07443577}
       - {x: -0.05346018, y: -0.31323892}
       - {x: 0.16499999, y: -0.31}
-      - {x: 0.175, y: -0.28}
+      - {x: 0.1651444, y: -0.27901447}
       - {x: 0.16499999, y: -0.25}
-      - {x: 0.095, y: -0.22999999}
+      - {x: 0.16438341, y: -0.23126127}
+      - {x: 0.16398977, y: -0.2053607}
 --- !u!1 &4602736884517778214
 GameObject:
   m_ObjectHideFlags: 0

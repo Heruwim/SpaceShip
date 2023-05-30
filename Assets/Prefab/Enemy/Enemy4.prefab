@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 8075817881354383204}
   - component: {fileID: 8075817881354383203}
   - component: {fileID: 955525898365494452}
+  - component: {fileID: 6461512221234322307}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Enemy
@@ -162,7 +163,6 @@ MonoBehaviour:
   _reward: 1
   _enemyWeapon: {fileID: 5571694330157676559, guid: 7a12297ae7d8eb94c942c6fa7e1bc53c, type: 3}
   _enemyShootPoint: {fileID: 8075817881282743677}
-  _deathEffect: {fileID: 5321682710661101450, guid: e337c960d66157e4da1ebae97a36bc71, type: 3}
 --- !u!114 &8075817881354383208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 8075817881354383205}
-  _transitionRange: 10
-  _rangetSpread: 4
+  _transitionRange: 8
+  _rangetSpread: 1
 --- !u!114 &8075817881354383205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +254,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8075817881354383202}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -288,3 +288,29 @@ PolygonCollider2D:
       - {x: 0.31595948, y: -0.11206645}
       - {x: 0.33499998, y: 0.089999996}
       - {x: 0.2093178, y: 0.21}
+--- !u!61 &6461512221234322307
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8075817881354383202}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.77, y: 0.58}
+    newSize: {x: 0.77, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.77, y: 0.58}
+  m_EdgeRadius: 0
