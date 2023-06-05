@@ -13,6 +13,8 @@ public class PlayerMover : MonoBehaviour
     private Menu _menu;
     private bool _menuOpen = false;
     private NextWave _nextWaveButton;
+    private float _topLimitY = 3.0f;
+    private float _bottomLimitY = -4.0f;
 
     private void Awake()
     {
@@ -53,7 +55,10 @@ public class PlayerMover : MonoBehaviour
         float scaleMoveSpeed = _speed * Time.deltaTime;
 
         Vector3 moveDirection = new Vector3(direction.x, direction.y, 0);
-        transform.position += moveDirection * scaleMoveSpeed;
+        Vector3 newPosition = transform.position + moveDirection * scaleMoveSpeed;
+
+        newPosition.y = Mathf.Clamp(newPosition.y, _bottomLimitY, _topLimitY);
+        transform.position = newPosition;
     }
     
     private void ToggleMenu()
