@@ -24,7 +24,7 @@ public class PlayerMover : MonoBehaviour
         _menu = _canvas.GetComponent<Menu>();
         _nextWaveButton = _canvas.GetComponentInChildren<NextWave>();
         
-        _input.Player.Shoot.performed += context => _player.Shoot();
+        _input.Player.Shoot.performed += context => ShootHandler();
         _input.Player.NextWeapon.performed += context => _player.NextWeapon();
         _input.Player.PreviousWeapon.performed += context => _player.PreviousWeapon();
         _input.Player.OpenMenu.performed += context => ToggleMenu();
@@ -60,18 +60,30 @@ public class PlayerMover : MonoBehaviour
         newPosition.y = Mathf.Clamp(newPosition.y, _bottomLimitY, _topLimitY);
         transform.position = newPosition;
     }
-    
+
+    private void ShootHandler()
+    {
+        if (!_menuOpen)
+        {
+            _player.Shoot();
+        }
+    }
+
     private void ToggleMenu()
     {
         if(_menuOpen)
         {
             _menu.ClosePanel(_menuPanel);
             _menuOpen = false;
+
+            _input.Player.Shoot.Enable();
         }
         else
         {
             _menu.OpenPanel(_menuPanel);
             _menuOpen = true;
+
+            _input.Player.Shoot.Disable();
         }
 
     }

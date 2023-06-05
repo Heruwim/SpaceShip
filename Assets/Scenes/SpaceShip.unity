@@ -5790,6 +5790,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 1784205045}
+  - {fileID: 106413311}
+  - {fileID: 431448741}
+  - {fileID: 363864157}
+  - {fileID: 80176217}
 --- !u!1 &171082465
 GameObject:
   m_ObjectHideFlags: 0
