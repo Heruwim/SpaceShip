@@ -30,7 +30,7 @@ public class PlayerMover : MonoBehaviour
         _input.Player.OpenMenu.performed += context => ToggleMenu();
         _input.Player.NextWave.performed += context => _nextWaveButton.OnNextWaveButtonClick();
 
-
+        _menu.Initialize(_input);
     }
 
     private void OnEnable()
@@ -75,15 +75,11 @@ public class PlayerMover : MonoBehaviour
         {
             _menu.ClosePanel(_menuPanel);
             _menuOpen = false;
-
-            _input.Player.Shoot.Enable();
         }
         else
         {
             _menu.OpenPanel(_menuPanel);
             _menuOpen = true;
-
-            _input.Player.Shoot.Disable();
         }
 
     }

@@ -4,6 +4,12 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Button[] _buttons;
+    private PlayerInput _input;
+
+    public void Initialize(PlayerInput input)
+    {
+        _input = input;
+    }
 
     public void OpenPanel(GameObject panel)
     {
@@ -11,6 +17,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 0;
 
         SetButtonsInteractable(false);
+        _input.Player.Shoot.Disable();
     }
 
     public void ClosePanel(GameObject panel)
@@ -19,6 +26,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
 
         SetButtonsInteractable(true);
+        _input.Player.Shoot.Enable();
     }
 
     public void Exit()
