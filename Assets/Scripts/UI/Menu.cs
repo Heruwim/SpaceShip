@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
@@ -40,5 +41,11 @@ public class Menu : MonoBehaviour
         {
             button.interactable = interactable;
         }
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("SpaceShip");
     }
 }
