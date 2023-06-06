@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     private Animator _animator;
     private BoxCollider2D _boxCollider;
     private ParticleSystem _explosion;
+    private int _currentHealth;
 
     public int Reward => _reward;
     public Player Target => _target;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        _currentHealth = _health;
         _animator = GetComponent<Animator>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _explosion = GameObject.Find("Explosion").GetComponent<ParticleSystem>();
@@ -34,13 +36,14 @@ public class Enemy : MonoBehaviour
         
     public void TakeDamage(int damage)
     {
-        _health -= damage;
+        _currentHealth -= damage;
 
-        if (_health <= 0)
+        if (_currentHealth <= 0)
         {
             Dying?.Invoke(this);
 
             gameObject.SetActive(false);
+            _currentHealth = _health;
             EnemyStateMachine stateMachine = gameObject.GetComponent<EnemyStateMachine>();
             stateMachine.ResetState();
             _explosion.transform.position = transform.position;
