@@ -30,6 +30,5 @@ public class AttackState : State
     {
        //_animator.Play("Attack");
        enemy.EnemyShoot();
-        
     }
 }

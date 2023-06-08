@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Button[] _buttons;
+    [SerializeField] private AudioMixerGroup _mixer;
+
+
     private PlayerInput _input;
 
     public void Initialize(PlayerInput input)
@@ -47,5 +51,18 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("SpaceShip");
+    }
+
+    public void ToggleMusic(bool enabled)
+    {
+        if (enabled)
+            _mixer.audioMixer.SetFloat("MusicVolume", 0);
+        else
+            _mixer.audioMixer.SetFloat("MusicVolume", -80);
+    }
+
+    public void ChangeVolume(float volume)
+    {
+        _mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
     }
 }

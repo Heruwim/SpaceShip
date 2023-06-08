@@ -6,8 +6,11 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
+
     [SerializeField] private EnemyWeapon _enemyWeapon;
     [SerializeField] private Transform _enemyShootPoint;
+
+    [SerializeField] private AudioSource _shootSound;
 
     private Player _target;
     private Animator _animator;
@@ -48,12 +51,15 @@ public class Enemy : MonoBehaviour
             stateMachine.ResetState();
             _explosion.transform.position = transform.position;
             _explosion.Play();
+            _explosion.GetComponentInChildren<AudioSource>().Play();
+            
         }
     }
 
     public void EnemyShoot()
     {
         _enemyWeapon.EnemyShoot(_enemyShootPoint);
+        _shootSound.Play();
     }   
     
 }

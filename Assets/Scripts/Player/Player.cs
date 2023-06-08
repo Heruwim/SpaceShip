@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private ParticleSystem _explosion;
 
+    [SerializeField] private AudioSource _shootSound;
+
     private Weapon _currentWeapon;
     private int _currentWeaponNumber = 0;
     private int _currentHealth;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
     public void Shoot()
     {
         _currentWeapon.Shoot(_shootPoint);
+        _shootSound.Play();
     }
 
     public void ApplyDamage(int damage)
@@ -41,6 +44,7 @@ public class Player : MonoBehaviour
         {
             _explosion.transform.position = transform.position;
             _explosion.Play();
+            _explosion.GetComponentInChildren<AudioSource>().Play();
             Die();
         }
     }

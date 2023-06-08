@@ -7,7 +7,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private GameObject _menuPanel;
     [SerializeField] private GameObject _canvas;
-
+    
     private PlayerInput _input;
     private Player _player;
     private Menu _menu;
