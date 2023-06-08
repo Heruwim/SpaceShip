@@ -8,7 +8,9 @@ public class Spawner : ObjectPool
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private Player _player;
     [SerializeField] private int _nextEnemyCount = 5;
-    [SerializeField] private float _secondsBetweeneSpawn = 2;
+    [SerializeField] private float _secondsBetweenSpawn = 1;
+    [SerializeField] private float _minSecondsBetweenSpawn = 0.1f;
+    [SerializeField] private float _secondsBetweenSpawnDecrease = 0.1f;
 
     private int _currentNumberEnemies;
     private int _currentWaveNumber = 1;
@@ -31,7 +33,7 @@ public class Spawner : ObjectPool
 
         _timeAfterLastSpawn += Time.deltaTime;
 
-        if (_timeAfterLastSpawn >= _secondsBetweeneSpawn)
+        if (_timeAfterLastSpawn >= _secondsBetweenSpawn)
         {
             if (TryGetObject(out GameObject enemy))
             {
@@ -64,6 +66,12 @@ public class Spawner : ObjectPool
     private void SetWave(int index)
     {
         _currentNumberEnemies = index * _nextEnemyCount;
+
+        if (index % 5 == 0)
+        {
+            _secondsBetweenSpawn -= _secondsBetweenSpawnDecrease;
+            _secondsBetweenSpawn = Mathf.Max(_secondsBetweenSpawn, _minSecondsBetweenSpawn);
+        }
     }
 
     public void NextWave()
