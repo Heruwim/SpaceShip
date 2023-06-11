@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Button[] _buttons;
+    [SerializeField] private Image[] _moveButtons;
     [SerializeField] private AudioMixerGroup _mixer;
 
 
@@ -44,6 +45,11 @@ public class Menu : MonoBehaviour
         foreach (Button button in _buttons)
         {
             button.interactable = interactable;
+        }
+
+        foreach (Image image in _moveButtons)
+        {
+            image.gameObject.SetActive(interactable);
         }
     }
 
