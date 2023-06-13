@@ -5,8 +5,6 @@ using UnityEngine.Audio;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private Image[] _moveButtons;
     [SerializeField] private AudioMixerGroup _mixer;
 
 
@@ -22,7 +20,6 @@ public class Menu : MonoBehaviour
         panel.SetActive(true);
         Time.timeScale = 0;
 
-        SetButtonsInteractable(false);
         _input.Player.Shoot.Disable();
     }
 
@@ -31,26 +28,17 @@ public class Menu : MonoBehaviour
         panel.SetActive(false);
         Time.timeScale = 1;
 
-        SetButtonsInteractable(true);
         _input.Player.Shoot.Enable();
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Exit()
     {
         Application.Quit();
-    }
-
-    private void SetButtonsInteractable(bool interactable)
-    {
-        foreach (Button button in _buttons)
-        {
-            button.interactable = interactable;
-        }
-
-        foreach (Image image in _moveButtons)
-        {
-            image.gameObject.SetActive(interactable);
-        }
     }
 
     public void RestartGame()
@@ -59,16 +47,20 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("SpaceShip");
     }
 
-    public void ToggleMusic(bool enabled)
-    {
-        if (enabled)
-            _mixer.audioMixer.SetFloat("MusicVolume", 0);
-        else
-            _mixer.audioMixer.SetFloat("MusicVolume", -80);
-    }
+    //public void ToggleMusic(bool enabled)
+    //{
+    //    if (enabled)
+    //        _mixer.audioMixer.SetFloat("MusicVolume", 0);
+    //    else
+    //        _mixer.audioMixer.SetFloat("MusicVolume", -80);
+    //}
 
     public void ChangeVolume(float volume)
     {
         _mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
+    }
+    public void ToggleMusic(float volume)
+    {
+        _mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, volume));
     }
 }

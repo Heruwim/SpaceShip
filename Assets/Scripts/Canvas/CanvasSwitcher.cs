@@ -5,7 +5,9 @@ public class CanvasSwitcher : MonoBehaviour
     [SerializeField] private Canvas _canvas169;
     [SerializeField] private Canvas _canvas189;
 
-	 private void Start() 
+    private Canvas _activeCanvas;
+
+	 private void Awake () 
 	 {	
 			float aspectRatio = (float)Screen.width / Screen.height;
 
@@ -20,7 +22,7 @@ public class CanvasSwitcher : MonoBehaviour
 	 }
 
 	 private void EnableCanvas(Canvas canvas)
-    {
+     {
         canvas.gameObject.SetActive(true);
 
         foreach (Canvas otherCanvas in GetComponentsInChildren<Canvas>())
@@ -30,6 +32,6 @@ public class CanvasSwitcher : MonoBehaviour
                 otherCanvas.gameObject.SetActive(false);
             }
         }
-    }
+     }
 
 }

@@ -6,7 +6,7 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private GameObject _menuPanel;
-    [SerializeField] private GameObject _canvas;
+    [SerializeField] private GameObject [] _activeCanvases;
     
     private PlayerInput _input;
     private Player _player;
@@ -21,8 +21,8 @@ public class PlayerMover : MonoBehaviour
         _input = new PlayerInput();
 
         _player = GetComponent<Player>();
-        _menu = _canvas.GetComponent<Menu>();
-        _nextWaveButton = _canvas.GetComponentInChildren<NextWave>();
+        
+        FindActiveCanvas();
         
         _input.Player.Shoot.performed += context => ShootHandler();
         _input.Player.NextWeapon.performed += context => _player.NextWeapon();
@@ -82,5 +82,18 @@ public class PlayerMover : MonoBehaviour
             _menuOpen = true;
         }
 
+    }
+
+    private void FindActiveCanvas()
+    {
+        foreach (GameObject canvas in _activeCanvases)
+        {
+            if (canvas.gameObject.activeSelf)
+            {
+                _menu = canvas.GetComponent<Menu>();
+                _nextWaveButton = canvas.GetComponentInChildren<NextWave>();
+                break;
+            }
+        }
     }
 }
