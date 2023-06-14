@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _reward;
+    [SerializeField] private int _score;
 
     [SerializeField] private EnemyWeapon _enemyWeapon;
     [SerializeField] private Transform _enemyShootPoint;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
     private int _currentHealth;
 
     public int Reward => _reward;
+    public int HighScore => _score;
     public Player Target => _target;
 
     public event UnityAction<Enemy> Dying;

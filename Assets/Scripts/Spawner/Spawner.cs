@@ -84,5 +84,6 @@ public class Spawner : ObjectPool
     {
         enemy.Dying -= OnEnemyDying;
         _player.AddMoney(enemy.Reward);
+        _player.AddScore(enemy.HighScore);
     }
 }

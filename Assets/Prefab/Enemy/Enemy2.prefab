@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 2
   _reward: 1
+  _score: 5
   _enemyWeapon: {fileID: 5571694330157676559, guid: 7a12297ae7d8eb94c942c6fa7e1bc53c, type: 3}
   _enemyShootPoint: {fileID: 4602736884517778209}
   _shootSound: {fileID: 5471274745081013371}
@@ -288,7 +289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 4602736882884590405}
-  _speed: 6
+  _speed: 7
 --- !u!114 &4602736882884590405
 MonoBehaviour:
   m_ObjectHideFlags: 0

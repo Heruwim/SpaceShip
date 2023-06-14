@@ -18,9 +18,11 @@ public class Player : MonoBehaviour
     private Animator _animator;
 
     public int Money { get; private set; }
+    public int Score { get; private set; }
 
     public event UnityAction<int, int> HealthChanged;
     public event UnityAction<int> MoneyChanged;
+    public event UnityAction<int> ScoreChanged;
 
 
     private void Start()
@@ -64,6 +66,12 @@ public class Player : MonoBehaviour
         Money -= weapon.Price;
         MoneyChanged?.Invoke(Money);
         _weapons.Add(weapon);
+    }
+
+    public void AddScore(int score)
+    {
+        Score += score;
+        ScoreChanged?.Invoke(Score);
     }
 
     public void NextWeapon()
