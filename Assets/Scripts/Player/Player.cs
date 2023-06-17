@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
@@ -9,8 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] private List<Weapon> _weapons;
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private ParticleSystem _explosion;
-
     [SerializeField] private AudioSource _shootSound;
+
+    [SerializeField] private Menu _menu169;
+    [SerializeField] private Menu _menu189;
+    [SerializeField] private GameObject _gameOverPanel169;
+    [SerializeField] private GameObject _gameOverPanel189;
 
     private Weapon _currentWeapon;
     private int _currentWeaponNumber = 0;
@@ -53,6 +59,14 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        if (IsAspectRatio16_9())
+        {
+            _menu169.OpenPanel(_gameOverPanel169);
+        }
+        else
+        {
+            _menu189.OpenPanel(_gameOverPanel189);
+        }
         Destroy(gameObject);
     }
 
@@ -97,5 +111,11 @@ public class Player : MonoBehaviour
     private void ChangeWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
+    }
+
+    private bool IsAspectRatio16_9()
+    {
+        float aspectRatio = (float)Screen.width / Screen.height;
+        return Mathf.Approximately(aspectRatio, 16f / 9f);
     }
 }

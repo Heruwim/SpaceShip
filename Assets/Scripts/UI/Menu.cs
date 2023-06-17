@@ -46,6 +46,11 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene("SpaceShip");
     }
+    public void ReturnToMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+    }
 
     //public void ToggleMusic(bool enabled)
     //{
