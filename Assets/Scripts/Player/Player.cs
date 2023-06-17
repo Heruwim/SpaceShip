@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
+        _animator.SetTrigger("TakeDamage");
         HealthChanged?.Invoke(_currentHealth, _health);
         if (_currentHealth <= 0)
         {
@@ -67,7 +68,6 @@ public class Player : MonoBehaviour
         {
             _menu189.OpenPanel(_gameOverPanel189);
         }
-        Destroy(gameObject);
     }
 
     public void AddMoney(int reward)

@@ -19082,6 +19082,10 @@ MonoBehaviour:
   _shootPoint: {fileID: 1455298838}
   _explosion: {fileID: 21110116}
   _shootSound: {fileID: 1844725720}
+  _menu169: {fileID: 136116545}
+  _menu189: {fileID: 726517224}
+  _gameOverPanel169: {fileID: 2124015519}
+  _gameOverPanel189: {fileID: 1214590131}
 --- !u!95 &1518824606
 Animator:
   serializedVersion: 5
