@@ -6,9 +6,26 @@ using UnityEngine.Audio;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup _mixer;
+    [SerializeField] private Slider _masterVolumeSlider;
+    [SerializeField] private Slider _musicToggleSlider;
 
 
     private PlayerInput _input;
+
+    private void Start()
+    {
+        _masterVolumeSlider.onValueChanged.AddListener(OnVolumeSliderChanged);
+        _musicToggleSlider.onValueChanged.AddListener(OnMusicToggleSliderChanged);
+
+        float masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+        float musicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+
+        _masterVolumeSlider.SetValueWithoutNotify(masterVolume);
+        _musicToggleSlider.SetValueWithoutNotify(musicVolume);
+
+        ChangeVolume(masterVolume);
+        ToggleMusic(musicVolume);
+    }
 
     public void Initialize(PlayerInput input)
     {
@@ -50,22 +67,28 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
-    }
-
-    //public void ToggleMusic(bool enabled)
-    //{
-    //    if (enabled)
-    //        _mixer.audioMixer.SetFloat("MusicVolume", 0);
-    //    else
-    //        _mixer.audioMixer.SetFloat("MusicVolume", -80);
-    //}
+    }   
 
     public void ChangeVolume(float volume)
     {
         _mixer.audioMixer.SetFloat("MasterVolume", Mathf.Lerp(-80, 0, volume));
+        AudioManager.MasterVolume = volume;
     }
     public void ToggleMusic(float volume)
     {
         _mixer.audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-80, 0, volume));
+        AudioManager.MusicVolume = volume;
+    }
+
+    private void OnVolumeSliderChanged(float value)
+    {
+        ChangeVolume(value);
+        PlayerPrefs.SetFloat("MasterVolume", value);
+    }
+
+    private void OnMusicToggleSliderChanged(float value)
+    {
+        ToggleMusic(value);
+        PlayerPrefs.SetFloat("MusicVolume", value);
     }
 }

@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 187817335}
   - component: {fileID: 187817336}
   m_Layer: 5
-  m_Name: MusicOnOffSlider
+  m_Name: MusicToggleSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1135610473}
+      - m_Target: {fileID: 1339292146}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ToggleMusic
         m_Mode: 0
@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 299967859}
   - component: {fileID: 299967861}
   - component: {fileID: 299967860}
+  - component: {fileID: 299967863}
   m_Layer: 5
   m_Name: Canvas189
   m_TagString: Untagged
@@ -833,6 +834,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &299967863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299967858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
+  _masterVolumeSlider: {fileID: 1889915556}
+  _musicToggleSlider: {fileID: 563772165}
 --- !u!1 &334370827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1545,7 @@ GameObject:
   - component: {fileID: 563772164}
   - component: {fileID: 563772165}
   m_Layer: 5
-  m_Name: MusicOnOffSlider
+  m_Name: MusicToggleSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,7 +1625,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424160817}
+      - m_Target: {fileID: 299967863}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ToggleMusic
         m_Mode: 0
@@ -1712,7 +1728,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1135610473}
+      - m_Target: {fileID: 1339292146}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 0
@@ -2182,7 +2198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424160817}
+      - m_Target: {fileID: 299967863}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
@@ -2316,7 +2332,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424160817}
+      - m_Target: {fileID: 299967863}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -2525,10 +2541,10 @@ RectTransform:
   m_Father: {fileID: 1018154806}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.079, y: 0.73600006}
-  m_AnchorMax: {x: 0.14947917, y: 0.882}
+  m_AnchorMin: {x: 0.04449105, y: 0.772}
+  m_AnchorMax: {x: 0.11329406, y: 0.9110001}
   m_AnchoredPosition: {x: 1, y: -1}
-  m_SizeDelta: {x: -91, y: -106}
+  m_SizeDelta: {x: -94, y: -95}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &999841182
 MonoBehaviour:
@@ -2928,7 +2944,6 @@ GameObject:
   - component: {fileID: 1018154806}
   - component: {fileID: 1018154809}
   - component: {fileID: 1018154808}
-  - component: {fileID: 1018154807}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -2962,19 +2977,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1018154807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018154805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
 --- !u!114 &1018154808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3233,7 +3235,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135610472}
-  - component: {fileID: 1135610473}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -3265,19 +3266,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1135610473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135610471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
 --- !u!1 &1285526026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,6 +3365,7 @@ GameObject:
   - component: {fileID: 1339292144}
   - component: {fileID: 1339292143}
   - component: {fileID: 1339292142}
+  - component: {fileID: 1339292146}
   m_Layer: 5
   m_Name: Canvas169
   m_TagString: Untagged
@@ -3468,6 +3457,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1339292146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339292141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
+  _masterVolumeSlider: {fileID: 568314764}
+  _musicToggleSlider: {fileID: 187817336}
 --- !u!1 &1358114323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,7 +3897,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424160818}
-  - component: {fileID: 1424160817}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -3901,19 +3904,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1424160817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1424160816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
 --- !u!224 &1424160818
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4759,7 +4749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1135610473}
+      - m_Target: {fileID: 1339292146}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -4820,7 +4810,6 @@ GameObject:
   - component: {fileID: 1653368037}
   - component: {fileID: 1653368039}
   - component: {fileID: 1653368038}
-  - component: {fileID: 1653368040}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -4892,19 +4881,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653368036}
   m_CullTransparentMesh: 1
---- !u!114 &1653368040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653368036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9381b4aa43d3d3f4a8e98aad126a236d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
 --- !u!1 &1683039412
 GameObject:
   m_ObjectHideFlags: 0
@@ -4940,10 +4916,10 @@ RectTransform:
   m_Father: {fileID: 1653368037}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.079, y: 0.74100006}
-  m_AnchorMax: {x: 0.15047917, y: 0.882}
+  m_AnchorMin: {x: 0.04547917, y: 0.785}
+  m_AnchorMax: {x: 0.124000005, y: 0.9174446}
   m_AnchoredPosition: {x: 1, y: -1}
-  m_SizeDelta: {x: -92, y: -102}
+  m_SizeDelta: {x: -101, y: -96}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1683039414
 MonoBehaviour:
@@ -5778,7 +5754,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1424160817}
+      - m_Target: {fileID: 299967863}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ChangeVolume
         m_Mode: 0
@@ -6046,7 +6022,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1135610473}
+      - m_Target: {fileID: 1339292146}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
