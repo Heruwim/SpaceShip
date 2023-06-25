@@ -6816,6 +6816,7 @@ MonoBehaviour:
   _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
   _masterVolumeSlider: {fileID: 964062852}
   _musicToggleSlider: {fileID: 1985630761}
+  _persentShowAds: 1
 --- !u!1 &136963290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12018,6 +12019,7 @@ MonoBehaviour:
   _mixer: {fileID: 24300002, guid: 3c29c1c3fe97d144589bc1cb6309a01f, type: 2}
   _masterVolumeSlider: {fileID: 1026719958}
   _musicToggleSlider: {fileID: 1088570191}
+  _persentShowAds: 1
 --- !u!114 &726517225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13115,6 +13117,8 @@ GameObject:
   m_Component:
   - component: {fileID: 880746295}
   - component: {fileID: 880746296}
+  - component: {fileID: 880746298}
+  - component: {fileID: 880746297}
   m_Layer: 0
   m_Name: HighScore
   m_TagString: Untagged
@@ -13155,6 +13159,35 @@ MonoBehaviour:
   _score: {fileID: 1229886911}
   _player: {fileID: 1518824605}
   _highScoreManager: {fileID: 647501872}
+--- !u!114 &880746297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880746294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a24297ff99cd7841a7c84c69fbdf4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOSAdUnitId: Interstitial_iOS
+--- !u!114 &880746298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880746294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202206c1f6a8adc458820b894d18925a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _testMod: 1
+  _androidGameId: 5323687
+  _iOsGameId: 5323686
 --- !u!1 &955996052
 GameObject:
   m_ObjectHideFlags: 0
@@ -19086,6 +19119,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 1455298838}
   _explosion: {fileID: 21110116}
   _shootSound: {fileID: 1844725720}
+  _persentShowAds: 0
   _menu169: {fileID: 136116545}
   _menu189: {fileID: 726517224}
   _gameOverPanel169: {fileID: 2124015519}
@@ -20295,6 +20329,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1721857486}
   - component: {fileID: 1721857487}
+  - component: {fileID: 1721857489}
+  - component: {fileID: 1721857488}
   m_Layer: 5
   m_Name: HighScore
   m_TagString: Untagged
@@ -20340,6 +20376,35 @@ MonoBehaviour:
   _score: {fileID: 1825399836}
   _player: {fileID: 1518824605}
   _highScoreManager: {fileID: 262368753}
+--- !u!114 &1721857488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721857485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a24297ff99cd7841a7c84c69fbdf4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidAdUnitId: Interstitial_Android
+  _iOSAdUnitId: Interstitial_iOS
+--- !u!114 &1721857489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721857485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202206c1f6a8adc458820b894d18925a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _testMod: 1
+  _androidGameId: 5323687
+  _iOsGameId: 5323686
 --- !u!1 &1722192735
 GameObject:
   m_ObjectHideFlags: 0

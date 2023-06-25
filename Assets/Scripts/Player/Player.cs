@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem _explosion;
     [SerializeField] private AudioSource _shootSound;
 
+    [SerializeField] private float _persentShowAds;
     [SerializeField] private Menu _menu169;
     [SerializeField] private Menu _menu189;
     [SerializeField] private GameObject _gameOverPanel169;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         ChangeWeapon(_weapons[_currentWeaponNumber]);
         _currentHealth = _health;
         _animator = GetComponent<Animator>();
+        InsterstitialAds.S.LoadAd();
     }
 
     public void Shoot()
@@ -63,10 +65,14 @@ public class Player : MonoBehaviour
         if (IsAspectRatio16_9())
         {
             _menu169.OpenPanel(_gameOverPanel169);
+
+            ShowingAds();
         }
         else
         {
             _menu189.OpenPanel(_gameOverPanel189);
+
+            ShowingAds();
         }
     }
 
@@ -117,5 +123,15 @@ public class Player : MonoBehaviour
     {
         float aspectRatio = (float)Screen.width / Screen.height;
         return Mathf.Approximately(aspectRatio, 16f / 9f);
+    }
+
+    private void ShowingAds()
+    {
+        float tempPersent = Random.Range(0f, 1f);
+
+        if (tempPersent > _persentShowAds)
+        {
+            InsterstitialAds.S.ShowAd();
+        }
     }
 }

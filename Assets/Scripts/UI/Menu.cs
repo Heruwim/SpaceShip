@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class Menu : MonoBehaviour
 {
@@ -9,11 +10,17 @@ public class Menu : MonoBehaviour
     [SerializeField] private Slider _masterVolumeSlider;
     [SerializeField] private Slider _musicToggleSlider;
 
+    [SerializeField] private float _persentShowAds;
+
 
     private PlayerInput _input;
 
+    private void Awake()
+    {
+    }
     private void Start()
     {
+        InsterstitialAds.S.LoadAd();        
         _masterVolumeSlider.onValueChanged.AddListener(OnVolumeSliderChanged);
         _musicToggleSlider.onValueChanged.AddListener(OnMusicToggleSliderChanged);
 
@@ -25,6 +32,7 @@ public class Menu : MonoBehaviour
 
         ChangeVolume(masterVolume);
         ToggleMusic(musicVolume);
+        StartCoroutine(LoadInsterstitialAds());
     }
 
     public void Initialize(PlayerInput input)
@@ -90,5 +98,19 @@ public class Menu : MonoBehaviour
     {
         ToggleMusic(value);
         PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+    private IEnumerator LoadInsterstitialAds()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ShowingAds();
+    }
+    private void ShowingAds()
+    {
+        float tempPersent = Random.Range(0f, 1f);
+
+        if (tempPersent > _persentShowAds)
+        {
+            InsterstitialAds.S.ShowAd();
+        }
     }
 }
