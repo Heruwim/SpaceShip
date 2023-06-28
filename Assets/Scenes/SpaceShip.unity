@@ -6817,6 +6817,7 @@ MonoBehaviour:
   _masterVolumeSlider: {fileID: 964062852}
   _musicToggleSlider: {fileID: 1985630761}
   _persentShowAds: 1
+  _shop: {fileID: 1297002102}
 --- !u!1 &136963290
 GameObject:
   m_ObjectHideFlags: 0
@@ -12020,6 +12021,7 @@ MonoBehaviour:
   _masterVolumeSlider: {fileID: 1026719958}
   _musicToggleSlider: {fileID: 1088570191}
   _persentShowAds: 1
+  _shop: {fileID: 739753081}
 --- !u!114 &726517225
 MonoBehaviour:
   m_ObjectHideFlags: 0

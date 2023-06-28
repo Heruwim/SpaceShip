@@ -28,8 +28,7 @@ public class WeaponView : MonoBehaviour
 
     private void TryLockItem()
     {
-        if (_weapon.IsBuyed)
-            _sellButton.interactable = false;
+        _sellButton.interactable = !_weapon.IsBuyed;
     }
 
     public void Render(Weapon weapon)

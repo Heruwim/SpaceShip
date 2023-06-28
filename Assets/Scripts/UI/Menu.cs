@@ -11,13 +11,12 @@ public class Menu : MonoBehaviour
     [SerializeField] private Slider _musicToggleSlider;
 
     [SerializeField] private float _persentShowAds;
+    [SerializeField] private Shop _shop;
 
 
     private PlayerInput _input;
 
-    private void Awake()
-    {
-    }
+   
     private void Start()
     {
         InsterstitialAds.S.LoadAd();        
@@ -70,6 +69,7 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("SpaceShip");
+        _shop.ResetWeaponsState();
     }
     public void ReturnToMainMenu()
     {

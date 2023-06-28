@@ -20,4 +20,9 @@ public abstract class Weapon : MonoBehaviour
     {
         _isBuyed = true;
     }
+
+    public void Reset()
+    {
+        _isBuyed = false;
+    }
 }

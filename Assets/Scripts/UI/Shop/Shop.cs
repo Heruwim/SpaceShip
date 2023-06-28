@@ -39,4 +39,12 @@ public class Shop : MonoBehaviour
 
         }
     }
+
+    public void ResetWeaponsState()
+    {
+        for (int i = 1; i < _weapons.Count; i++)
+        {
+            _weapons[i].Reset();
+        }
+    }
 }
